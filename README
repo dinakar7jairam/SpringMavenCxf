@@ -1,0 +1,61 @@
+
+                          Service Provider Base
+
+  What is it?
+  -----------
+
+  I long thought of having some eclipse java project that would the minimum
+  software setup already for use. 
+  For example, I would think of a dynamic web project having
+  Maven,
+  Spring,
+  Configuration module,
+  Webservice
+  at a minimum.
+  This project is aimed to create a SOAP based service
+  that would have single entry point which would service different kind of requests.
+  Plans are there to include REST based service at a later point of time.
+  This project is a parent/child Maven project having 3 modules called
+  wsres
+  wsgen
+  wsservice
+  wsres would have resources that are common to wsgen and wsservice modules.
+  wsgen would have generated java files using the wsdls and xsds in wsgen.
+  wsservice is a Spring 3.x based project. 
+  It uses Commons Configuration 1.9 to read the configuration files.
+  It uses Apache CXF 2.6.0 to create webservices.
+  It uses Log4j2 2.0 for logging.
+  It uses HSqlDB 2.3.0 as repository that is started (in the network mode) from the Tomcat.
+  It uses JDK 1.7 and Tomcat 8.
+  
+  I used Eclipse Kepler. However, any version of Eclipse would do.
+  
+  Setup
+  -----
+  You can import the project into your eclipse at the root level (ServiceProviderBase) directly from Git.
+  Once imported, you can the choose the modules to import into Eclipse using General Projects
+  For building, right click root level project and run Maven Clean & Install.
+  
+  The Latest Version
+  ------------------
+  
+  For the latest version, you can always check Git.
+  Add this project to the Git watchlist.
+
+  Documentation
+  -------------
+
+	Will be updated in Git by November, 2013.
+
+  Installation
+  ------------
+
+  Please see the file called INSTALL.  Platform specific notes can be
+  found in README.platforms.
+
+ 
+
+  Contacts
+  --------
+	Will be updated in Git by November, 2013.
+    For now, you can leave your comments in GitHub.
