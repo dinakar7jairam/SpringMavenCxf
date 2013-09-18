@@ -4,7 +4,7 @@
   What is it?
   -----------
 
-  I long thought of having some eclipse java project that would the minimum
+  I long thought of having some eclipse java project that would have the minimum
   software setup already for use. 
   For example, I would think of a dynamic web project having
   Maven,
@@ -53,7 +53,9 @@
   Please see the file called INSTALL.  Platform specific notes can be
   found in README.platforms.
 
- 
+  Author
+  ------
+  Dinakaran Jayaraman
 
   Contacts
   --------
