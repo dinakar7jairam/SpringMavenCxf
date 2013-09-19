@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/integration 
+	http://www.springframework.org/schema/integration/spring-integration.xsd">
+ 
+	<context:annotation-config />
+	<context:component-scan base-package="com.mycomp" />
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/LibraryDB" />
+	</bean>
+
+<!-- creates a java.util.Properties instance with values loaded from the supplied location -->
+	<util:properties id="hsqlProperties" location="classpath:hsql.properties"/>
+	
+	<bean id="propertyConfigurer"
+		class="com.mycomp.utils.CustomPropertyPlaceHolder" />
+
+	 <!-- enable the configuration of transactional behavior based on annotations -->
+  <tx:annotation-driven transaction-manager="txManager"/>
+
+  <!-- a PlatformTransactionManager is still required -->
+  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <!-- (this dependency is defined somewhere else) -->
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  	<bean id="hSqlServer" class="com.mycomp.utils.HSqlServer">
+    	<constructor-arg ref="hsqlProperties" />
+	</bean>
+
+  <bean id="libSvcBean" class="com.mycomp.webservices.LibSvcImpl" />
+
+</beans>

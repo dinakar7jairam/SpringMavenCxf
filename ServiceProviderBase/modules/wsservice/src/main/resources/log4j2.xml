@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appenders>
+    <File name="A1" fileName="C:/temp/sjw.log" append="false">
+      <PatternLayout pattern="%d{MM-dd-yy HH:mm:ss} %-23C{1} - %m%n"/>
+    </File>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{MM-dd-yy HH:mm:ss} %-23C{1} - %m%n"/>
+    </Console>
+  </appenders>
+  <loggers>
+    <logger name="org.apache.log4j.xml" level="debug">
+      <appender-ref ref="A1"/>
+    </logger>
+    <root level="debug">
+      <appender-ref ref="STDOUT"/>
+       <appender-ref ref="A1"/>
+    </root>
+  </loggers>
+</configuration>

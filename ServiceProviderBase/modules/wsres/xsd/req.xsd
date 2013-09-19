@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.mycomp.com/services/libsvc"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.mycomp.com/services/libsvc"
+	xmlns="http://www.mycomp.com/services/libsvc">
+
+	<xsd:include schemaLocation="./libsvc.xsd" />
+
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="requestId" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="RequestList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="appName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Id of client
+							submitting request.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="appRequestId" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Client specific id
+							for the client submitting request.
+							It is returned in the response.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="immediate" type="xsd:int" default="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Indicates whether
+							the request list is to be
+							processed immediate (0) or delayed (1).
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="requests" type="tns:Request"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+		    <xsd:element name="appRequestId" type="xsd:string"/>
+			<xsd:element name="serverRequestId" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="ResponseList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serverResponseId" type="xsd:string" />
+				<xsd:element name="appName" type="xsd:string"
+					minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Value of clientId
+							from the request list.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="appRequestId" type="xsd:string"
+					minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Value of
+							clientRequestId from the request list.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="responses" type="tns:Response"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="GetAccountRequest">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Request">
+				<xsd:sequence>
+					<xsd:element name="getAccountRequestInfo" type="tns:GetAccountRequestInfo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="GetAccountResponse">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Response">
+				<xsd:sequence>
+					<xsd:element name="getAccountResponseInfo" type="tns:GetAccountResponseInfo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ErrorResponse">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Response">
+				<xsd:sequence>
+					<xsd:element name="errorResponseInfo" type="tns:ErrorResponseInfo" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ErrorResponseInfo">
+		<xsd:sequence>
+			<xsd:element name="message" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Client friendly error
+						message about request failure
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Fault">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="faultCode" type="xsd:string" />
+				<xsd:element name="faultStr" type="xsd:string" />
+				<xsd:element name="detail" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
