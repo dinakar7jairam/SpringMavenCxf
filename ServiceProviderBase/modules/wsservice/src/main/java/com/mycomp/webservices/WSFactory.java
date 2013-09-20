@@ -23,6 +23,7 @@ public class WSFactory {
 	 */
 	public static AppStrategy getStrategy(String name) {
 		String className = name.substring(name.lastIndexOf(".") + 1);
+		System.out.println("className:"+className);
 		return (AppStrategy) SpringContext.getBean(className);
 	}
 }

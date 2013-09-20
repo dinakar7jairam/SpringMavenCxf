@@ -5,6 +5,8 @@ package com.mycomp.webservices;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.mycomp.SpringContext;
 import com.mycomp.context.AppContext;
 import com.mycomp.gen.Request;
@@ -20,6 +22,7 @@ import com.mycomp.utils.AppLogger;
  * 
  * @author Dinakaran Jayaraman
  */
+@Service
 public class RequestProcessorImpl implements RequestProcessor {
 
 	/** The logger. */

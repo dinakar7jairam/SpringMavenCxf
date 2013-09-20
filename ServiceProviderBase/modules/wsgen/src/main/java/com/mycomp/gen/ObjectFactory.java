@@ -30,51 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ResponseList }
-     * 
-     */
-    public ResponseList createResponseList() {
-        return new ResponseList();
-    }
-
-    /**
-     * Create an instance of {@link AccountResult }
-     * 
-     */
-    public AccountResult createAccountResult() {
-        return new AccountResult();
-    }
-
-    /**
-     * Create an instance of {@link RequestList }
-     * 
-     */
-    public RequestList createRequestList() {
-        return new RequestList();
-    }
-
-    /**
-     * Create an instance of {@link Fault }
-     * 
-     */
-    public Fault createFault() {
-        return new Fault();
-    }
-
-    /**
      * Create an instance of {@link ErrorResponse }
      * 
      */
     public ErrorResponse createErrorResponse() {
         return new ErrorResponse();
-    }
-
-    /**
-     * Create an instance of {@link Response }
-     * 
-     */
-    public Response createResponse() {
-        return new Response();
     }
 
     /**
@@ -86,19 +46,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RequestList }
+     * 
+     */
+    public RequestList createRequestList() {
+        return new RequestList();
+    }
+
+    /**
      * Create an instance of {@link GetAccountResponse }
      * 
      */
     public GetAccountResponse createGetAccountResponse() {
         return new GetAccountResponse();
-    }
-
-    /**
-     * Create an instance of {@link ErrorResponseInfo }
-     * 
-     */
-    public ErrorResponseInfo createErrorResponseInfo() {
-        return new ErrorResponseInfo();
     }
 
     /**
@@ -118,11 +78,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Response }
+     * 
+     */
+    public Response createResponse() {
+        return new Response();
+    }
+
+    /**
+     * Create an instance of {@link AccountResult }
+     * 
+     */
+    public AccountResult createAccountResult() {
+        return new AccountResult();
+    }
+
+    /**
+     * Create an instance of {@link ErrorResponseInfo }
+     * 
+     */
+    public ErrorResponseInfo createErrorResponseInfo() {
+        return new ErrorResponseInfo();
+    }
+
+    /**
+     * Create an instance of {@link ResponseList }
+     * 
+     */
+    public ResponseList createResponseList() {
+        return new ResponseList();
+    }
+
+    /**
      * Create an instance of {@link GetAccountRequestInfo }
      * 
      */
     public GetAccountRequestInfo createGetAccountRequestInfo() {
         return new GetAccountRequestInfo();
+    }
+
+    /**
+     * Create an instance of {@link Fault }
+     * 
+     */
+    public Fault createFault() {
+        return new Fault();
     }
 
 }

@@ -18,6 +18,7 @@
 	<name>SpringJMSWs</name>
 	<packaging>war</packaging>
 	<build>
+	<finalName>sjw</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
